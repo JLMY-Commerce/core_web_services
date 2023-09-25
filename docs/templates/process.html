@@ -1,0 +1,27 @@
+{% extends 'assets/base_with_nav_bars.html' %}
+{% load static %}
+{% comment %} {% block content %}{% endblock content %} {% endcomment %}
+{% block content-inside %}
+    <div class="row mb-4">
+        <div class="col d-flex justify-content-center align-items-center"
+             style="background-image: url('{% static 'img/team.jpg' %}'); height: 30vh">
+            <h1 class="text-white">Processos</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <img src="{% static 'img/ghost.gif' %}" style="height: 200px" alt="">
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-6 text-center ">
+            <p>Essa pagina esta em construção, tenha certeza que não foi preguiça ou sono que o desenvolvedor estava ao
+                fazer essa pagina em pleno domingo de madrugada</p>
+            <p>Se você achou essa pagina parabens, ela é um link clicavel na barra de navegação, mas não esta
+                funcionando já que quando vocẽ clica no botão ele abre é o dropdown
+            <p>
+        </div>
+    </div>
+
+
+{% endblock content-inside %}

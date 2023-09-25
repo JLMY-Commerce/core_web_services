@@ -1,0 +1,71 @@
+{% extends 'assets/base_with_nav_bars.html' %}
+{% load static %}
+{% comment %} {% block content %}{% endblock content %} {% endcomment %}
+{% block content-inside %}
+    <div class="row mb-4">
+        <div class="col d-flex justify-content-center align-items-center"
+             style="background-image: url('{% static 'img/team.jpg' %}'); height: 30vh">
+            <h1 class="text-white">Papéis</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h6 class="text-center">Back-end</h6>
+            <ul>
+                <li>Desenvolve a lógica de servidor e infraestrutura para o aplicativo.</li>
+                <li>Responsável por garantir que o sistema funcione de forma eficiente e segura no lado do
+                    servidor.
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+            <h6 class="text-center">Banco de Dados</h6>
+            <ul>
+                <li>Gerencia o banco de dados, incluindo criação, manutenção e otimização.</li>
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+            <h6 class="text-center">Front-end</h6>
+            <ul>
+                <li>Foca na interface do usuário e na experiência do usuário.</li>
+                <li>Desenvolve a parte visível do aplicativo ou site.</li>
+                <li>Cria layouts, páginas, elementos de design e interações para melhorar a usabilidade.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h6 class="text-center">Web Designer</h6>
+            <ul>
+                <li>Trabalha na criação de elementos visuais para sites e aplicativos.</li>
+                <li>Desenvolve wireframes, protótipos e designs gráficos.</li>
+                <li>Garante que o design seja esteticamente atraente e funcional para o usuário.</li>
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+            <h6 class="text-center">Gerente de Projeto</h6>
+            <ul>
+                <li>Planeja e coordena todas as atividades do projeto.</li>
+                <li>Define metas, prazos e recursos necessários.</li>
+                <li>Acompanha o progresso e garante que o projeto seja entregue dentro do prazo e orçamento.</li>
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+            <h6 class="text-center">Product Owner</h6>
+            <ul>
+                <li>Define e prioriza os requisitos do produto.</li>
+                <li>Interage com a equipe de desenvolvimento para garantir que o produto atenda às necessidades do
+                    cliente.
+                </li>
+                <li>Faz escolhas de escopo e decisões sobre o que deve ser desenvolvido em cada iteração (Sprint).
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock content-inside %}

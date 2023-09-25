@@ -1,0 +1,96 @@
+{% extends 'assets/base_with_nav_bars.html' %}
+{% load static %}
+{% comment %} {% block content %}{% endblock content %} {% endcomment %}
+{% block content-inside %}
+    <div class="row">
+        <div class="col d-flex justify-content-center align-items-center"
+             style="background-image: url('{% static 'img/team.jpg' %}'); height: 30vh">
+            <h1 class="text-white">JLMY - Commerce</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-4">
+            <h3>Nosso Projeto</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-4" style="background-color: coral">
+            <p class="fs-5">O software tem por objetivo criar um mercado online exclusivo para a comunidade estudantil,
+                onde os
+                alunos possam compartilhar e adquirir serviços, habilidades e conhecimentos além de produtos, fomentando
+                a colaboração e a economia compartilhada entre estudantes e professores.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-4">
+            <h3>Nosso time</h3>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 p-4">
+                <div class="card">
+                    <img src="{% static 'img/persons/odevjorge-1.png' %}" class="card-img-top" alt="odevjorge">
+                    <div class="card-body">
+                        <h5 class="card-title">Jorge Luiz</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Backend & Banco de dados</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="https://www.linkedin.com/in/odevjorge/" class="card-link">linkedin</a>
+                        <a href="https://github.com/odevjorge/" class="card-link">github</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-4">
+                <div class="card">
+                    <img src="{% static 'img/persons/matheus-macedo.jpg' %}" class="card-img-top" alt="Matheus">
+                    <div class="card-body">
+                        <h5 class="card-title">Matheus Macedo</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Designer</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="https://www.linkedin.com/in/odevjorge/" class="card-link">linkedin</a>
+                        <a href="https://github.com/odevjorge/" class="card-link">github</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-4">
+                <div class="card">
+                    <img src="{% static 'img/persons/lazaro-rytson.jpeg' %}" class="card-img-top"
+                         alt="Lázaro Rytson">
+                    <div class="card-body">
+                        <h5 class="card-title">Lázaro Rytson</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">PO & PM</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="https://www.linkedin.com/in/lazarorytson/" class="card-link">linkedin</a>
+                        <a href="https://github.com/IRytson/" class="card-link">github</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 p-4">
+                <div class="card">
+                    <img src="{% static 'img/persons/fabricia-rayane.jpg' %}" class="card-img-top"
+                         alt="Yullia Rayane">
+                    <div class="card-body">
+                        <h5 class="card-title p-0">Yúlia Rodrigues</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Front-end</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="http://linkedin.com/in/y%C3%BAlia-rodrigues-1b9384220" class="card-link">linkedin</a>
+                        <a href="https://github.com/yuliaardrigues" class="card-link">github</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content-inside %}
