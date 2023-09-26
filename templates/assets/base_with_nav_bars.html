@@ -4,15 +4,52 @@
 
 {% block content %}
     <div class="row" style="background-color: #808080">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary shadow bg-body-tertiary" style="height: 10vh">
-            <div class="container-fluid px-5">
-                <a class="navbar-brand" href="#"><img src="{% static 'img/logo-variant-2.png' %}" alt="" style="width: 80%"></a>
+        {#        <nav class="navbar navbar-expand-lg bg-body-tertiary shadow bg-body-tertiary" style="height: 10vh">#}
+        {#            <div class="container-fluid px-5">#}
+        {#                <a class="navbar-brand" href="/"><img src="{% static 'img/logo-variant-2.png' %}" alt="" style="width: 80%"></a>#}
+        {#                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"#}
+        {#                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"#}
+        {#                        aria-label="Toggle navigation">#}
+        {#                    <span class="navbar-toggler-icon"></span>#}
+        {#                </button>#}
+        {#                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">#}
+        {#                    <ul class="navbar-nav d-flex align-items-center">#}
+        {#                        <li class="nav-item">#}
+        {#                            <a class="nav-link active" aria-current="page" href="{% url 'docs/home' %}">Inicio</a>#}
+        {#                        </li>#}
+        {#                        <li>&bull;</li>#}
+        {#                        <li class="nav-item">#}
+        {#                            <a class="nav-link" href="{% url 'docs/product' %}">Produto</a>#}
+        {#                        </li>#}
+        {#                        <li>&bull;</li>#}
+        {#                        <li class="nav-item dropdown">#}
+        {#                            <a class="nav-link dropdown-toggle" href="{% url 'docs/process' %}" role="button" data-bs-toggle="dropdown"#}
+        {#                               aria-expanded="false">#}
+        {#                                Processo#}
+        {#                            </a>#}
+        {#                            <ul class="dropdown-menu">#}
+        {#                                <li><a class="dropdown-item" href="{% url 'docs/lifecycle' %}">Ciclo de Vida</a></li>#}
+        {#                            </ul>#}
+        {#                        </li>#}
+        {#                        <li>&bull;</li>#}
+        {#                        <li class="nav-item">#}
+        {#                            <a class="nav-link" href="{% url 'docs/office' %}">Papeis</a>#}
+        {#                        </li>#}
+        {#                    </ul>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </nav>#}
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid d-flex justify-content-between">
+                <a class="navbar-brand" href="/"><img src="{% static 'img/logo-variant-2.png' %}" alt=""
+                                                      style="width: 80%"></a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="flex-grow: unset">
                     <ul class="navbar-nav d-flex align-items-center">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{% url 'docs/home' %}">Inicio</a>
@@ -23,7 +60,8 @@
                         </li>
                         <li>&bull;</li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{% url 'docs/process' %}" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" href="{% url 'docs/process' %}" role="button"
+                               data-bs-toggle="dropdown"
                                aria-expanded="false">
                                 Processo
                             </a>
@@ -44,9 +82,9 @@
         <div class="col-12 container" style="">
             {% block content-inside %}
             {% endblock content-inside %}
-        <div class="row d-flex align-items-center p-2" style="background-color: coral">
-            <span>&copy;Copyright 2023 &bull; JLMY - Commerce &bull; Todos os direitos reservados</span>
-        </div>
+            <div class="row d-flex align-items-center p-2" style="background-color: coral">
+                <span>&copy;Copyright 2023 &bull; JLMY - Commerce &bull; Todos os direitos reservados</span>
+            </div>
         </div>
     </div>
 {% endblock content %}
