@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Cliente
+from django.contrib.auth.models import User
 
 
 class ClienteCreateForm(UserCreationForm):
@@ -12,5 +12,5 @@ class ClienteCreateForm(UserCreationForm):
     password2 = forms.CharField(label="Repita sua senha")
 
     class Meta:
-        model = Cliente
+        model = User
         fields = ('username', 'first_name', 'email', 'password1', 'password2')

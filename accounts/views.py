@@ -4,13 +4,14 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from .models import Cliente
+from django.contrib.auth.models import User
 from accounts.forms import ClienteCreateForm
 
 
 class CustomLoginView(LoginView):
     template_name = "login.html"
-    success_url = reverse_lazy("homepage")
+    success_url = reverse_lazy("produto-list")
+
 
     def form_invalid(self, form):
         messages.error(self.request, "Nome de usuário ou senha incorretos.")
@@ -27,14 +28,13 @@ class CustomLogoutView(LogoutView):
 
 @method_decorator(login_required, name='dispatch')
 class UserListView(ListView):
-    model = Cliente
+    model = User
     template_name = 'user_list.html'
     context_object_name = 'users'
 
 
-@method_decorator(login_required, name='dispatch')
 class UserCreateView(CreateView):
-    model = Cliente
+    model = User
     template_name = 'user_form.html'
     form_class = ClienteCreateForm
     success_url = reverse_lazy('user_list')
@@ -46,7 +46,7 @@ class UserCreateView(CreateView):
 
 @method_decorator(login_required, name='dispatch')
 class UserUpdateView(UpdateView):
-    model = Cliente
+    model = User
     template_name = 'user_form.html'
     form_class = ClienteCreateForm
     success_url = reverse_lazy('user_list')
@@ -58,7 +58,7 @@ class UserUpdateView(UpdateView):
 
 @method_decorator(login_required, name='dispatch')
 class UserDeleteView(DeleteView):
-    model = Cliente
+    model = User
     template_name = 'user_confirm_delete.html'
     success_url = reverse_lazy('user_list')
 
