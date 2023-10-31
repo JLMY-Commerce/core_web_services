@@ -1,0 +1,9 @@
+{% extends "assets/dashboard_with_nav_bars.html" %}
+
+{% block content-inside %}
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit">Criar</button>
+    </form>
+{% endblock %}
