@@ -6,45 +6,16 @@
     <div class="row" style="background-color: #808080">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="{% static 'img/logo-variant-2.png' %}" width="150px" alt="">
+                <a class="navbar-brand" href="{% url 'produto-list' %}">
+                    <img src="{% static 'img/iconeJLMY.png' %}" width="86px" alt="" href="{% url 'produto-list' %}" >
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'produto-list' %}">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
+                
+              
                     <div class="d-flex">
                         {% if user.is_authenticated %}
-                            <a href="{% url 'logout' %}"><i class="fs-4 text-dark-emphasis bi bi-box-arrow-right"></i></a>
+                            <a href="{% url 'logout' %}"><i class="fs-4 text-dark-emphasis bi bi-box-arrow-right" style="color: #6E0AD6;"></i></a>
                         {% else %}
-                            <a class="text-dark-emphasis text-decoration-none px-2" href="{% url 'login' %}">Entrar</a>
+                            <a class="text-dark-emphasis text-decoration-none px-2" href="{% url 'login' %}"><img src="{% static 'img/User Circle.png' %}" width="24px" alt=""></a>
                             <a class="text-dark-emphasis text-decoration-none px-2" href="{% url 'create-account' %}">Criar conta</i></a>
                         {% endif %}
                     </div>

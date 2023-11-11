@@ -1,9 +1,7 @@
 {% extends "base/base.html" %}
 
 {% block content %}
-    <form action="." method="post">
-        {% csrf_token %}
-        {{ form }}
+    <div class="container my-5"> 
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-6 col-lg-5 col-xl-5">
                 <div class="card shadow-2-strong" style="border-radius: 1rem; background: #1A1B41; ">
@@ -44,29 +42,31 @@
 
                             </div>
 
+                            <form action="." method="post">
+                                {% csrf_token %}
                             <div class="form-floating mb-4">
-
-                                <input type="E-mail" id="email" class="form-control form-control-lg d-inline-flex"
+                                <input type="email" id="email" class="form-control form-control-lg d-inline-flex"
                                        style=" border: 3px solid #FFBD7B;" placeholder=" ">
                                 <label for="email" class="form-label" style="color: #FFBD7B;"> E-mail </label>
 
                             </div>
                             <div class="form-floating mb-2 ">
-                                <input type="Senha" id="Senha" class="form-control form-control-lg d-inline-flex"
+                                <input type="password" id="Senha" class="form-control form-control-lg d-inline-flex"
                                        style=" border: 3px solid #FFBD7B;" placeholder=" ">
                                 <label for="senha" class="form-label" style="color: #FFBD7B;"> Senha </label>
                             </div>
+
                             <div class="row">
                                 <div class="col d-flex justify-content-end mb-2">
                                     <a href="#!" style=" text-decoration: none; color: #FFBD7B;">Esqueci minha senha</a>
                                 </div>
                                 <div class="text-center mt-3 mx-3">
-                                    <button type="button" class=" p-2 bd-highlight btn btn-outline"
+                                    
+                                    <button type="submit" class=" p-2 bd-highlight btn btn-outline"
                                             style="width: 150px;  border: 2px solid #FFBD7B; color: #FFBD7B;">Entrar
                                     </button>
                                 </div>
-
-
+                            </form>
                                 <div class="text-center p-2">
                                     <a href="#!" style="color: #FFBD7B;">Cadastre-se</a>
                                 </div>
@@ -77,6 +77,5 @@
                 </div>
             </div>
         </div>
-        <button type="submit">Enviar</button>
-    </form>
+ 
 {% endblock %}
