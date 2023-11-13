@@ -3,15 +3,31 @@
 {% load static %}
 
 {% block content %}
+
+<style> .search-input::placeholder { 
+    color: #6E0AD6;
+    opacity: 1;}
+</style>
     <div class="row" style="background-color: #808080">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'produto-list' %}">
                     <img src="{% static 'img/iconeJLMY.png' %}" width="86px" alt="" href="{% url 'produto-list' %}" >
                 </a>
-                
-              
-                    <div class="d-flex">
+                <div class="container search-container mx-auto" style=" max-width:30rem;">
+                    <form class="form-inline my-2 my-lg-0 search-form">
+                        <div class="input-group w-80 ">
+                            <input type="search" class="form-control search-input border-1 " placeholder="Pesquise na JLMY" style=" background-color: #e7e7e7; border: solid #6E0AD6;">
+                            <div class="input-group-append h-2">
+                                <button class="btn  search-button position-absolute  top-0 end-0 " type="submit" style="">
+                                    <i class="fas fa-search border-1" style="color: #6E0AD6; "></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+   
+                    <div class="d-flex">    
                         {% if user.is_authenticated %}
                             <a href="{% url 'logout' %}"><i class="fs-4 text-dark-emphasis bi bi-box-arrow-right" style="color: #6E0AD6;"></i></a>
                         {% else %}
