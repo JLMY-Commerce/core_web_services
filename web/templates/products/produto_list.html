@@ -1,1 +1,39 @@
 {% extends "assets/dashboard_with_nav_bars.html" %}
+
+{% load static %}
+
+{% block  content-inside  %}
+
+<style>
+    .dropdown-toggle::after {
+        border-top-color: rgba(110, 10, 214, 1); 
+    }
+    </style>
+
+<div class="d-flex justify-content-center">
+    <div class="btn-group">
+        <div class="dropdown position-static ">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{%  static 'img/shop.png' %}" alt=""><span style="color:rgba(110, 10, 214, 1);">Anúncios</span> 
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Ação 1</a></li>
+                <li><a class="dropdown-item" href="#">Outra ação 1</a></li>
+                <li><a class="dropdown-item" href="#">Algo mais aqui 1</a></li>
+            </ul>
+        </div>
+     
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="{% static 'img/widget.png' %}" alt=""><span style="color:rgba(110, 10, 214, 1);">Categorias</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Ação 2</a></li>
+                <li><a class="dropdown-item" href="#">Outra ação 2</a></li>
+                <li><a class="dropdown-item" href="#">Algo mais aqui 2</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+{% endblock  %}
