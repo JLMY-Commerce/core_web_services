@@ -1,0 +1,8 @@
+{% extends 'assets/dashboard_with_nav_bars.html' %}
+
+{% block content-inside %}
+    <form action="." method="post">
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Criar Produto</button>
+    </form>
+{% endblock %}

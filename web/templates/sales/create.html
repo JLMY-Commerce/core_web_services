@@ -1,0 +1,9 @@
+{% extends 'assets/dashboard_with_nav_bars.html' %}
+
+{% block content-inside %}
+    <form action="." method="post">
+        {{ form.as_p }}
+        <p>Não achou o produto que você precisa? <a href="">Adicionar Produto</a></p>
+        <button class="btn btn-primary" type="submit">Criar venda</button>
+    </form>
+{% endblock %}

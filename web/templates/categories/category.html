@@ -1,0 +1,21 @@
+{% extends "assets/dashboard_with_nav_bars.html" %}
+
+{% block content-inside %}
+    <div class="row px-5">
+        <div class="d-flex align-items-center justify-content-center"><span class="fw-bold fs-5">{{ categories.nome }}</span>
+        </div>
+        {% for product in categories.produtos.all %}
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="{{ product.imagem.url }}" class="card-img-top" alt=""
+                         style="height: 300px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.nome }}</h5>
+                        <p class="card-text">R${{ product.preco }}</p>
+                        <a href="#" class="btn btn-warning">Comprar agora</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

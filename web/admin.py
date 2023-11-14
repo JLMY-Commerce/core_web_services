@@ -17,7 +17,7 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 @admin.register(Produto)
 class ProdutoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'preco', 'estoque', 'categoria')
+    list_display = ('nome', 'categoria')
 
 
 @admin.register(Compra)
@@ -28,7 +28,7 @@ class CompraAdmin(admin.ModelAdmin):
 
 @admin.register(Venda)
 class VendaAdmin(admin.ModelAdmin):
-    list_display = ('produto', 'quantidade', 'data', 'vendedor')
+    list_display = ('produto', 'preco', 'quantidade', 'data', 'vendedor')
     list_filter = ('produto', 'vendedor')
 
 
