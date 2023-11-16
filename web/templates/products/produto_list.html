@@ -3,13 +3,17 @@
 {% block content-inside %}
     <div class="row border border-dark-subtle border-start-0 border-end-0">
         <div class="d-flex flex-column px-5 py-4">
-            <span class="fs-5">Categorias</span>
-            <div class="d-flex overflow-y-auto">
+            <span class="fs-3" style="color: #6E0AD6;">Categorias</span>
+            <div class="row">
                 {% for category in categories %}
                     <a href="{% url 'categoria' category.id %}">
-                        <div class="card mx-1" style="width: 130px;">
-                            <img src="{{ category.imagem.url }}" class="card-img-top" alt="" style="">
-                            <div class="card-text text-center text-decoration-none text-">{{ category.nome }}</div>
+                <div class="col-lg-4">
+                            <img src="{{ category.imagem.url }}" class="bd-placeholder-img rounded-circle" alt="" style="width: 140px; height:140px;">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+                   
+                         <h2 class="fw-normal " style="font-size: 20px; font-style: normal; font-weight: 500;">
+                             <a href="{% url 'categoria' category.id %}" class="text-decoration-none">{{ category.nome }}</a></h2>
                         </div>
                     </a>
                 {% endfor %}
@@ -20,7 +24,7 @@
     <div class="container p-0 m-0">
         <div class="row ">
             <div class="px-5 py-4">
-                <span class="fs-5">Produtos</span>
+                <span class="fs-5" style="color: #6E0AD6;">Produtos</span>
                 <div class="row row-cols-1 row-cols-md-4">
                 {{ products.produto }}
                     {% for venda in products %}
@@ -41,6 +45,5 @@
             </div>
         </div>
     </div>
-
 
 {% endblock %}
