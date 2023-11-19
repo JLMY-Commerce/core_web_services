@@ -1,6 +1,11 @@
 {% extends "assets/dashboard_with_nav_bars.html" %}
-
+{% load static %}
 {% block content-inside %}
+       <div style="display: contents;" >
+        <section class="ui-search-header--deal" style="background-position: 50%; background-repeat: no-repeat; background-size: auto 100%; display: block; margin: 0; min-height: 242px; width: 100%;">
+            <img src="{% static 'img/21869768_pin_12.jpg' %}" alt="Descrição da imagem" style="width: 100%; height: 400px;">
+       </section>
+    </div>
     <div class="row border border-dark-subtle border-start-0 border-end-0">
         <div class="d-flex flex-column px-5 py-4">
             <span class="fs-3" style="color: #6E0AD6;">Categorias</span>
