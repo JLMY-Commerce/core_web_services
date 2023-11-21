@@ -5,6 +5,7 @@ from web.models import Produto, Categoria, Venda
 from web.views.products.forms import ProdutoForm
 
 
+
 class ProdutoListView(ListView):
     model = Venda
     template_name = 'products/produto_list.html'

@@ -8,28 +8,29 @@
     </div>
     <div class="row border border-dark-subtle border-start-0 border-end-0">
         <div class="d-flex flex-column px-5 py-4">
-            <span class="fs-3" style="color: #6E0AD6;">Categorias</span>
-            <div class="row">
+            <span class="fs-3 w-5  h-5" style="color: #6E0AD6;">Categorias</span>
+            <div class="row  hstack gap-3">
                 {% for category in categories %}
-                    <a href="{% url 'categoria' category.id %}">
-                <div class="col-lg-4">
-                            <img src="{{ category.imagem.url }}" class="bd-placeholder-img rounded-circle" alt="" style="width: 140px; height:140px;">
-                            <title>Placeholder</title>
+                      <div class="col-2 p-5"> 
+                        <a href="{% url 'categoria' category.id %}" class="text-decoration-none">
+                            <img src="{{ category.imagem.url }}" class="bd-placeholder-img rounded-circle" alt="" style="width: 100px; height: 100px;">
                             <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-                   
-                         <h2 class="fw-normal " style="font-size: 20px; font-style: normal; font-weight: 500;">
-                             <a href="{% url 'categoria' category.id %}" class="text-decoration-none" style="color: #6E0AD6;">{{ category.nome }}</a></h2>
-                        </div>
-                    </a>
+                            <p class="fw-normal ml-2"  style="font-size: 16px; font-style: normal;">
+                                {{ category.nome }}
+                            </p>
+                        </a>
+                    </div>
                 {% endfor %}
             </div>
+            </div>
+            
         </div>
     </div>
 
     <div class="container p-0 m-0">
         <div class="row ">
             <div class="px-5 py-4">
-                <span class="fs-5" style="color: #6E0AD6;">Produtos</span>
+                <span class="fs-5" style="color: #6E0AD6;">Anúncios</span>
                 <div class="row row-cols-1 row-cols-md-4">
                 {{ products.produto }}
                     {% for venda in products %}

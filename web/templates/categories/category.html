@@ -1,9 +1,13 @@
 {% extends "assets/dashboard_with_nav_bars.html" %}
 
 {% block content-inside %}
-    <div class="row px-5">
-        <div class="d-flex align-items-center justify-content-center"><span class="fw-bold fs-5">{{ categories.nome }}</span>
+
+{% for category in categories %}
+    <div class="row px-4">
+        <div class="d-flex align-items-center justify-content-center">
+            <span class="fw-bold fs-4">{{ categories.nome }}</span>
         </div>
+        
         {% for product in categories.produtos.all %}
             <div class="col mb-4">
                 <div class="card">
@@ -18,4 +22,5 @@
             </div>
         {% endfor %}
     </div>
+    {% endfor %}
 {% endblock %}
