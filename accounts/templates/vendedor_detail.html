@@ -1,0 +1,35 @@
+{% extends 'assets/dashboard_with_nav_bars.html' %}
+
+{% block content-inside %}
+    <div class="row m-4">
+        <div class="d-flex justify-content-center">
+            <span class="fs-4">{{ vendedor }}</span>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="m-5">
+            <div class="d-flex justify-content-start align-items-center">
+                <span class="fs-4">Produtos vendidos:</span>
+                <a href="{% url 'venda-create' %}"><button class="ms-4 btn btn-outline-success">Vender novo produto</button></a>
+            </div>
+            {% for venda in vendas %}
+                <div class="col mb-2 p-2">
+                    <div class="card" style="margin: 15px 15px 0 0;">
+                        <img src="{{ venda.produto.imagem.url }}" class="card-img-top" alt=""
+                             style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ venda.produto.nome }}</h5>
+                            <span class="card-text">R${{ venda.preco }}</span>
+                            <p class="card-text text-dark-emphasis" style="font-size: 13px">Vendido
+                                por: {{ venda.vendedor }}</p>
+                            <a href="#" class="btn"
+                               style="border-radius: 15px; background: #E47911; color: #ffff;">Adicione ao seu
+                                carrinho</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

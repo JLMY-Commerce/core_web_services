@@ -1,17 +1,18 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from django.contrib.auth.models import User
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from accounts.forms import ClienteCreateForm
+from web.models import Venda
 
 
 class CustomLoginView(LoginView):
     template_name = "login.html"
     success_url = reverse_lazy("produto-list")
-
 
     def form_invalid(self, form):
         messages.error(self.request, "Nome de usuário ou senha incorretos.")
@@ -24,6 +25,22 @@ class CustomLogoutView(LogoutView):
     def dispatch(self, request, *args, **kwargs):
         messages.success(request, "Você saiu com sucesso.")
         return super().dispatch(request, *args, **kwargs)
+
+
+class VendedorDetailView(DetailView):
+    model = User
+    template_name = 'vendedor_detail.html'
+    context_object_name = 'vendedor'
+
+    def get_object(self, queryset=None):
+        username = self.kwargs.get('username')
+        return get_object_or_404(User, username=username)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        vendas_do_vendedor = Venda.objects.filter(vendedor=self.object)
+        context['vendas'] = vendas_do_vendedor
+        return context
 
 
 @method_decorator(login_required, name='dispatch')

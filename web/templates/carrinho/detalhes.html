@@ -1,0 +1,25 @@
+{% extends 'assets/dashboard_with_nav_bars.html' %}
+
+{% block content-inside %}
+    <form action="." method="post">
+        <div class="d-flex">
+            <div class="row row-cols-3 row-cols-md-4">
+                {% for venda in carrinho.produtos.all %}
+                    <div class="col mb-2 p-2">
+                        <div class="card" style="margin: 15px 15px 0 0;">
+                            <img src="{{ venda.produto.imagem.url }}" class="card-img-top" alt=""
+                                 style="height: 250px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ venda.produto.nome }}</h5>
+                                <span class="card-text">R${{ venda.produto.venda.all.0.preco }} x {{ venda.quantidade }}</span>
+                                <p class="card-text text-dark-emphasis" style="font-size: 13px">Vendido
+                                    por: {{ venda.produto.venda.all.0.vendedor }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

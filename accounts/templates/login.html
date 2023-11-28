@@ -45,13 +45,13 @@
                             <form action="." method="post">
                                 {% csrf_token %}
                             <div class="form-floating mb-4">
-                                <input type="email" id="email" class="form-control form-control-lg d-inline-flex"
+                                <input type="text" name="username" id="email" class="form-control form-control-lg d-inline-flex"
                                        style=" border: 3px solid #FFBD7B;" placeholder=" ">
                                 <label for="email" class="form-label" style="color: #FFBD7B;"> E-mail </label>
 
                             </div>
                             <div class="form-floating mb-2 ">
-                                <input type="password" id="Senha" class="form-control form-control-lg d-inline-flex"
+                                <input type="password" name="password" id="Senha" class="form-control form-control-lg d-inline-flex"
                                        style=" border: 3px solid #FFBD7B;" placeholder=" ">
                                 <label for="senha" class="form-label" style="color: #FFBD7B;"> Senha </label>
                             </div>
@@ -68,7 +68,7 @@
                                 </div>
                             </form>
                                 <div class="text-center p-2">
-                                    <a href="#!" style="color: #FFBD7B;">Cadastre-se</a>
+                                    <a href="{% url 'create-account' %}" style="color: #FFBD7B;">Cadastre-se</a>
                                 </div>
 
                             </div>

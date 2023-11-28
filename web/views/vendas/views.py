@@ -1,3 +1,4 @@
+from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from web.models import Venda
@@ -10,3 +11,11 @@ class VenderProdutoView(CreateView):
     template_name = "sales/create.html"
     form_class = VendaForm
 
+    def get_initial(self):
+        # Defina os valores iniciais do formulário, se necessário
+        initial = super().get_initial()
+        initial['vendedor'] = self.request.user
+        return initial
+
+    def get_success_url(self):
+        return reverse_lazy('produto-list')

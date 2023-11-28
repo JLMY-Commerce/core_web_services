@@ -2,12 +2,7 @@ from django.contrib import admin
 from django.contrib.admin.widgets import FilteredSelectMultiple
 from django.db import models
 
-from .models import Categoria, Produto, Compra, Venda, CarrinhoDeCompras, ItemCarrinho, Promocao
-
-
-class ItemCarrinhoInline(admin.TabularInline):
-    model = ItemCarrinho
-    extra = 1
+from .models import Categoria, Produto, Compra, Venda, CarrinhoDeCompras, Promocao, ProdutoCarrinho
 
 
 @admin.register(Categoria)
@@ -26,23 +21,30 @@ class CompraAdmin(admin.ModelAdmin):
     list_filter = ('produto',)
 
 
-@admin.register(Venda)
-class VendaAdmin(admin.ModelAdmin):
-    list_display = ('produto', 'preco', 'quantidade', 'data', 'vendedor')
-    list_filter = ('produto', 'vendedor')
+admin.site.register(Venda)
+
+
+@admin.register(Promocao)
+class PromocaoAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'descricao', 'desconto')
+
+
+class ProdutoCarrinhoInline(admin.TabularInline):
+    model = ProdutoCarrinho
+    extra = 1
+
+
+@admin.register(ProdutoCarrinho)
+class ProdutoCarrinhoAdmin(admin.ModelAdmin):
+    list_display = ("carrinho", "produto", "quantidade")
 
 
 @admin.register(CarrinhoDeCompras)
 class CarrinhoDeComprasAdmin(admin.ModelAdmin):
     list_display = ('usuario',)
 
-    formfield_overrides = {
-        models.ManyToManyField: {'widget': FilteredSelectMultiple('itens', False)},
-    }
+    # formfield_overrides = {
+    #     models.ManyToManyField: {'widget': FilteredSelectMultiple('itens', False)},
+    # }
 
-    inlines = (ItemCarrinhoInline,)
-
-
-@admin.register(Promocao)
-class PromocaoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'descricao', 'desconto')
+    inlines = [ProdutoCarrinhoInline]

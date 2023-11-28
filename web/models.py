@@ -22,11 +22,11 @@ class Produto(models.Model):
 
 
 class Venda(models.Model):
-    produto = models.ForeignKey("Produto", on_delete=models.CASCADE, related_name="venda")
+    produto = models.ForeignKey("Produto", related_name="venda", on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField()
     data = models.DateTimeField(auto_now_add=True)
     preco = models.CharField(max_length=20)
-    vendedor = models.ForeignKey("auth.User", on_delete=models.CASCADE)  # Adicionando o campo de vendedor
+    vendedor = models.ForeignKey("auth.User", on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Venda de {self.quantidade} {self.produto.nome}(s) em {self.data} por {self.vendedor.username}"
@@ -42,15 +42,15 @@ class Compra(models.Model):
 
 
 class CarrinhoDeCompras(models.Model):
-    usuario = models.OneToOneField("auth.User", on_delete=models.CASCADE)
-    itens = models.ManyToManyField("Produto", through='ItemCarrinho')
+    usuario = models.OneToOneField("auth.User", on_delete=models.CASCADE, related_name="carrinho")
+    estado = models.CharField(choices=[("0", "Aberto"), ("1", "Finalizado")], max_length=2)
 
     def __str__(self):
         return f'Carrinho de {self.usuario.username}'
 
 
-class ItemCarrinho(models.Model):
-    carrinho = models.ForeignKey(CarrinhoDeCompras, on_delete=models.CASCADE)
+class ProdutoCarrinho(models.Model):
+    carrinho = models.ForeignKey("CarrinhoDeCompras", on_delete=models.CASCADE, related_name="produtos")
     produto = models.ForeignKey("Produto", on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField()
 

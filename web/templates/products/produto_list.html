@@ -1,95 +1,114 @@
 {% extends "assets/dashboard_with_nav_bars.html" %}
 {% load static %}
 {% block content-inside %}
-<style>
-    .rounded-circle {
-        border-radius: 50%!important;
-    }
-    .border-5 {
-        border-width: 5px;
-    }
-    .hover-top-in .hover-top--in {
-        position: relative;
-        top: 0px;
-    }
-    .hover-top-in:hover .hover-top--in {
-        top: 0px;
-    }
-    .hover-top-in {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    .z-index-1 {
-        z-index: 1!important;
-    }
-  
-    .p-4 {
-        padding: 1.5rem!important;
-    }
-    .px-5 {
-        padding-right: 2rem!important;
-        padding-left: 2rem!important;
-    }
-    .position-relative {
-        position: relative!important;
-    }
-    .overflow-hidden {
-        overflow: hidden!important;
-    }
-    
-</style>
+    <style>
+        .rounded-circle {
+            border-radius: 50% !important;
+        }
 
-<div class="card">
-    <img src="{% static 'img/persons/image 1.svg' %}" class="card-img" alt="" style="width: 100%; height: 100%">
-</div> 
-<div class="container p-0 m-0">
-    <div class="row border border-start-0 border-end-0">
-        <div class="d-flex flex-column">
-            <span class="fs-3 w-5 h-5" style="color: #6E0AD6;">Categorias</span>
-            <div class="row">
-                {% for category in categories %}
-                <div class="col-lg-3 col-sm-6 my-3" style="padding: 15px; margin-bottom: 12px; width: 130px;height: 130px;" >
-                    <div class="hover-top-in text-center"  style="width: 200px; height: 112px;">
-                        <div class="overflow-hidden z-index-1 position-relative px-5">
-                            <img class="rounded-circle border  shadow" src="{{ category.imagem.url }}" title="" alt="" style="width: 90px; height: 90px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
-                            <div class="pt-2">
-                                <a class="text-decoration-none" style="color: #6E0AD6; font-size: 12px;" href="{% url 'categoria' category.id %}">{{ category.nome }}</a> 
-                            </div>
-                        </div>
-                        </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
+        .border-5 {
+            border-width: 5px;
+        }
+
+        .hover-top-in .hover-top--in {
+            position: relative;
+            top: 0px;
+        }
+
+        .hover-top-in:hover .hover-top--in {
+            top: 0px;
+        }
+
+        .hover-top-in {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .z-index-1 {
+            z-index: 1 !important;
+        }
+
+        .p-4 {
+            padding: 1.5rem !important;
+        }
+
+        .px-5 {
+            padding-right: 2rem !important;
+            padding-left: 2rem !important;
+        }
+
+        .position-relative {
+            position: relative !important;
+        }
+
+        .overflow-hidden {
+            overflow: hidden !important;
+        }
+
+    </style>
+
+    <div class="card">
+        <img src="{% static 'img/persons/image 1.svg' %}" class="card-img" alt="" style="width: 100%; height: 100%">
     </div>
-</div>
-<div class="container p-0 m-0">
-    <div class="row">
-        <div class="px-5 py-4">
-            <span class="fs-3 w-5 h-5" style="color: #6E0AD6;">Ofertas</span>
-            <div class="row row-cols-3 row-cols-md-4">
-                {{ products.produto }}
-                {% for venda in products %}
-                <div class="col mb-2 p-2">
-                    <div class="card" style="margin: 15px 15px 0 0;">
-                        <img src="{{ venda.produto.imagem.url }}" class="card-img-top" alt="" style="height: 250px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ venda.produto.nome }}</h5>
-                            <span class="card-text">R${{ venda.preco }}</span>
-                            <p class="card-text text-dark-emphasis" style="font-size: 13px">Vendido por: {{ venda.vendedor }}</p>
-                            <a href="#" class="btn" style="border-radius: 15px; background: #E47911; color: #ffff;">Adicione ao seu carrinho</a>
-                        </div>
+    <div class="container p-0 m-0">
+        <div class="row">
+            <div class="px-5 py-4">
+                <div class="d-flex flex-column">
+                    <span class="fs-3 w-5 h-5" style="color: #6E0AD6;">Categorias</span>
+                    <div class="row">
+                        {% for category in categories %}
+                            <div class="col-lg-3 col-sm-6 my-3"
+                                 style="padding: 15px; margin-bottom: 12px; width: 130px;height: 130px;">
+                                <div class="hover-top-in text-center" style="width: 200px; height: 112px;">
+                                    <div class="overflow-hidden z-index-1 position-relative px-5">
+                                        <img class="rounded-circle border  shadow" src="{{ category.imagem.url }}"
+                                             title="" alt=""
+                                             style="width: 90px; height: 90px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
+                                        <div class="pt-2">
+                                            <a class="text-decoration-none" style="color: #6E0AD6; font-size: 12px;"
+                                               href="{% url 'categoria' category.id %}">{{ category.nome }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>
-</div>
+    <div class="container p-0 m-0">
+        <div class="row">
+            <div class="px-5 py-4">
+                <span class="fs-3 w-5 h-5" style="color: #6E0AD6;">Ofertas</span>
+                <div class="row row-cols-3 row-cols-md-4">
+                    {{ products.produto }}
+                    {% for venda in products %}
+                        <div class="col mb-2 p-2">
+                            <div class="card" style="margin: 15px 15px 0 0;">
+                                <img src="{{ venda.produto.imagem.url }}" class="card-img-top" alt=""
+                                     style="height: 250px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ venda.produto.nome }}</h5>
+                                    <span class="card-text">R${{ venda.preco }}</span>
+                                    <p class="card-text text-dark-emphasis" style="font-size: 13px">Vendido
+                                        por: {{ venda.vendedor }}</p>
+                                    <a href="{% url 'adicionar_ao_carrinho' venda.produto.id %}" class="btn"
+                                       style="border-radius: 15px; background: #E47911; color: #ffff;">Adicione ao seu
+                                        carrinho</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

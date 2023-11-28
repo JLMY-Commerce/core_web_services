@@ -1,9 +1,20 @@
 {% extends "assets/dashboard_with_nav_bars.html" %}
 
 {% block content-inside %}
-    <form action="." method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-    <button type="submit">Criar</button>
-    </form>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <span class="fs-4 mb-3">Cria sua conta:</span>
+        <div class="col-4 border border-secondary rounded p-2">
+            <form action="." method="post">
+                {% csrf_token %}
+                {% for form_fields in form %}
+                    <div class="d-flex flex-column">
+                        {{ form_fields.label }}:
+                        {{ form_fields }}
+                    </div>
+                {% endfor %}
+
+                <button class="mt-3 btn btn-success w-25" type="submit">Criar</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

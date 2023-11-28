@@ -31,6 +31,7 @@ class ProdutoCreateView(CreateView):
     model = Produto
     template_name = 'products/create.html'
     form_class = ProdutoForm
+    success_url = reverse_lazy('venda-create')
 
 
 class ProdutoUpdateView(UpdateView):

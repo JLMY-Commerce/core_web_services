@@ -1,0 +1,19 @@
+{% extends 'assets/dashboard_with_nav_bars.html' %}
+
+{% block content-inside %}
+    <div class="h-100 d-flex align-self-center">
+        <div class="row">
+            <div class="col-6 d-flex justify-content-center flex-column">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="{{ product.produto.imagem.url }}" alt="" width="50%">
+                </div>
+            </div>
+            <div class="col-6 d-flex justify-content-center flex-column">
+                <span class="fw-bold fs-4">{{ product.produto.nome }}</span>
+                <span>{{ product.produto.descricao }}</span>
+                <span>R${{ product.preco }} | Vendido por {{ product.vendedor }}</span>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
